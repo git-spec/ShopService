@@ -26,7 +26,7 @@ class OrderListRepoTest {
         // WHEN
         OrderListRepo list = new OrderListRepo();
         list.addOrder(order);
-        Optional<Order> actual = list.getOrder(id);
+        Optional<Order> actual = list.getOrderByID(id);
         // THEN
         assertTrue(actual.isPresent());
     }
@@ -50,7 +50,7 @@ class OrderListRepoTest {
         // WHEN
         OrderListRepo list = new OrderListRepo();
         list.addOrder(order);
-        Optional<Order> actual = list.getOrder(id);
+        Optional<Order> actual = list.getOrderByID(id);
         // THEN
         assertEquals(expected, actual);
     }
@@ -75,7 +75,7 @@ class OrderListRepoTest {
         OrderListRepo orderList = new OrderListRepo();
         orderList.addOrder(order);
         orderList.removeOrder(id);
-        Optional<Order> actual = orderList.getOrder(id);
+        Optional<Order> actual = orderList.getOrderByID(id);
         // THEN
         assertEquals(expected, actual);
     }

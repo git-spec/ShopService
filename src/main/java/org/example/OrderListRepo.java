@@ -34,7 +34,7 @@ public class OrderListRepo {
                 '}';
     }
 
-    public Optional<Order> getOrder(String id) {
+    public Optional<Order> getOrderByID(String id) {
         Optional<Order> result = Optional.empty();
         for (Order order : orders) if (order.id().equals(id)) result = Optional.of(order);
         return result;
