@@ -18,7 +18,7 @@ class ProductRepoTest {
         // WHEN
         ProductRepo repo = new ProductRepo();
         repo.addProduct(expected);
-        Optional<Product> actual = repo.getProduct(id);
+        Optional<Product> actual = repo.getProductByID(id);
         // THEN
         assertEquals(expected, actual.orElse(null));
     }
@@ -32,7 +32,7 @@ class ProductRepoTest {
         // WHEN
         ProductRepo repo = new ProductRepo();
         repo.addProduct(product);
-        Optional<Product> actual = repo.getProduct(id);
+        Optional<Product> actual = repo.getProductByID(id);
         // THEN
         assertEquals(expected, actual);
     }
@@ -47,7 +47,7 @@ class ProductRepoTest {
         ProductRepo repo = new ProductRepo();
         repo.addProduct(product);
         repo.removeProduct(id);
-        Optional<Product> actual = repo.getProduct(id);
+        Optional<Product> actual = repo.getProductByID(id);
         // THEN
         assertEquals(expected, actual);
     }
