@@ -3,6 +3,7 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class OrderListRepo {
     private final List<Order> orders;
@@ -31,6 +32,10 @@ public class OrderListRepo {
         return "OrderListRepo{" +
                 "orders=" + orders +
                 '}';
+    }
+
+    public Optional<Order> getOrder(String id) {
+        return Optional.empty();
     }
 
     public void addOrder(Order order) {
