@@ -43,4 +43,8 @@ public class OrderListRepo {
     public void addOrder(Order order) {
         orders.add(order);
     }
+
+    public void removeOrder(String id) {
+        this.orders.removeIf(order -> order.id().equals(id));
+    }
 }
