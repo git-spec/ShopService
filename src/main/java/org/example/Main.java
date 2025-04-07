@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        ProductRepo productRepo = new ProductRepo();
+        ShopService shopService = new ShopService();
         Product product_1 = new Product(
                 "123456",
                 "Apfel",
@@ -26,13 +26,10 @@ public class Main {
                 1.79,
                 1.79
         );
-        productRepo.addProduct(product_1);
-        productRepo.addProduct(product_2);
-        productRepo.addProduct(product_3);
+        shopService.productRepo.addProduct(product_1);
+        shopService.productRepo.addProduct(product_2);
+        shopService.productRepo.addProduct(product_3);
 
-        OrderListRepo orderListRepo = new OrderListRepo();
-
-        ShopService shopService = new ShopService(orderListRepo, productRepo);
         Map<String, String> request_1 = new HashMap<>();
         request_1.put("id", "123456");
         request_1.put("amount", "4");
@@ -45,6 +42,7 @@ public class Main {
 
         shopService.placeOrder(requests);
 
-        System.out.println(OrderListRepo.orderID);
+        System.out.println(shopService.getOrderList());
+        System.out.println("Order ID: " + OrderListRepo.orderID);
     }
 }

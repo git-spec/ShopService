@@ -5,13 +5,8 @@ import java.util.Map;
 import java.util.Optional;
 
 public class ShopService {
-    private final OrderListRepo orderList;
-    private final ProductRepo productRepo;
-
-    public ShopService(OrderListRepo orderList, ProductRepo productRepo) {
-        this.orderList = orderList;
-        this.productRepo = productRepo;
-    }
+    public final OrderListRepo orderList = new OrderListRepo();
+    public final ProductRepo productRepo = new ProductRepo();
     /**
      * Places an order into order list after ckecking existence of products.
      * @param requests  an array of maps with product id and amount
@@ -22,7 +17,7 @@ public class ShopService {
             Optional<Product> product = checkProduct(productRepo.getProducts(), request.get("id"));
             if (!product.equals(Optional.empty())) {
                 // Changes order id into integer.
-                int orderID = Integer.parseInt(request.get("id"));
+                int orderID = Integer.parseInt(OrderListRepo.orderID);
                 // Sets new order id.
                 orderID += orderID;
                 // Sets order.
