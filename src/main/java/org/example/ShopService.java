@@ -3,6 +3,7 @@ package org.example;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 public class ShopService {
     public final OrderListRepo orderList = new OrderListRepo();
@@ -17,14 +18,8 @@ public class ShopService {
             // Checks existence of product.
             Optional<Product> product = checkProduct(productRepo.getProducts(), request.get("id"));
             if (!product.equals(Optional.empty())) {
-                // Changes order id into integer.
-                int orderID = Integer.parseInt(OrderListRepo.orderID);
-                // Sets new order id.
-                orderID += orderID;
                 // Sets order.
-                orderList.addOrder(new Order(OrderListRepo.orderID, product.orElseThrow(), orderID));
-                // Saves new order id as string.
-                OrderListRepo.orderID = Integer.toString(orderID);
+                orderList.addOrder(new Order(UUID.randomUUID().toString(), product.orElseThrow(), Integer.parseInt(request.get("amount"))));
             }
         }
     }
