@@ -42,7 +42,7 @@ public class Main {
 
         shopService.placeOrder(requests);
 
-        System.out.println(shopService.getOrderList());
-        System.out.println("Order ID: " + OrderListRepo.orderID);
+        shopService.showOrders();
+        System.out.println();
     }
 }

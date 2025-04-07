@@ -7,6 +7,7 @@ import java.util.Optional;
 public class ShopService {
     public final OrderListRepo orderList = new OrderListRepo();
     public final ProductRepo productRepo = new ProductRepo();
+
     /**
      * Places an order into order list after ckecking existence of products.
      * @param requests  an array of maps with product id and amount
@@ -28,24 +29,29 @@ public class ShopService {
         }
     }
 
-    public ProductRepo getProductRepo() {
-        return productRepo;
-    }
-
-    public OrderListRepo getOrderList() {
-        return orderList;
-    }
-
     /**
      * Checks existence of a product in the product repository.
      * @param products  available products
      * @param productID product id
-     * @return optional of a product
+     * @return optional of a product or empty
      */
     public Optional<Product> checkProduct(List<Product> products, String productID) {
         Optional<Product> result = Optional.empty();
         for (Product product: products) if (product.id().equals(productID)) result = Optional.of(product);
         if (result.equals(Optional.empty())) System.out.println("Product ID " + productID + " does not exist.");
         return result;
+    }
+
+    /**
+     * Prints orders.
+     */
+    public void showOrders() {
+        orderList.getOrders().forEach(System.out::println);
+        System.out.println("\n");
+        for (Order order: orderList.getOrders()) {
+            System.out.println("Order-ID: " + order.id());
+            System.out.println("Product: " + order.product().name());
+            System.out.println("Amount: " + order.amount() + "\n");
+        }
     }
 }
