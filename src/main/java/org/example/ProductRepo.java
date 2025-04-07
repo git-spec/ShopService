@@ -43,4 +43,12 @@ public class ProductRepo {
         for (Product p : products) if (p.id().equals(id)) product = p;
         return product == null ? Optional.empty() : Optional.of(product);
     }
+
+    public void removeProduct(String id) {
+        this.products.removeIf(product -> product.id().equals(id));
+    }
+
+    public void removeAll() {
+        this.products.clear();
+    }
 }
