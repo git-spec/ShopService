@@ -38,7 +38,7 @@ class ProductRepoTest {
     }
 
     @Test
-    void getProducts_shouldHaveNotProduct_whenProductIsRemoved() {
+    void removeProduct_shouldHaveNotProduct_whenProductIsRemoved() {
         // GIVEN
         String id = "123457";
         Product product = new Product("123456", "Apfel", 0.69, 20);
@@ -53,7 +53,7 @@ class ProductRepoTest {
     }
 
     @Test
-    void getProducts_shouldBeEmpty_whenAllProductsAreCleared() {
+    void removeAll_shouldBeEmpty_whenAllProductsAreCleared() {
         // GIVEN
         String id = "123457";
         Product product_1 = new Product("123456", "Apfel", 0.69, 20);
