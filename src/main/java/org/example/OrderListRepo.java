@@ -32,4 +32,8 @@ public class OrderListRepo {
                 "orders=" + orders +
                 '}';
     }
+
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
 }
