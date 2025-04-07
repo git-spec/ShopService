@@ -5,9 +5,13 @@ import java.util.Map;
 import java.util.Optional;
 
 public class ShopService {
-    OrderListRepo orderList = new OrderListRepo();
-    ProductRepo productRepo = new ProductRepo();
+    private final OrderListRepo orderList;
+    private final ProductRepo productRepo;
 
+    public ShopService(OrderListRepo orderList, ProductRepo productRepo) {
+        this.orderList = orderList;
+        this.productRepo = productRepo;
+    }
     /**
      * Places an order into order list after ckecking existence of products.
      * @param requests  an array of maps with product id and amount
@@ -27,6 +31,14 @@ public class ShopService {
                 OrderListRepo.orderID = Integer.toString(orderID);
             }
         }
+    }
+
+    public ProductRepo getProductRepo() {
+        return productRepo;
+    }
+
+    public OrderListRepo getOrderList() {
+        return orderList;
     }
 
     /**
