@@ -4,6 +4,6 @@ public record Product(
         String id,
         String name,
         double price,
-        int amount
+        double total
 
 ) {}
