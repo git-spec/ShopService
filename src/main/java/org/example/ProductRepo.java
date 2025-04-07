@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ProductRepo {
-    private List<Product> products;
+    private final List<Product> products;
 
     public ProductRepo() {
         this.products = new ArrayList<Product>();
@@ -13,10 +13,6 @@ public class ProductRepo {
 
     public List<Product> getProducts() {
         return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
     }
 
     @Override
@@ -28,5 +24,9 @@ public class ProductRepo {
     @Override
     public int hashCode() {
         return Objects.hashCode(getProducts());
+    }
+
+    public void addProduct(Product product) {
+        this.products.add(product);
     }
 }
