@@ -3,6 +3,7 @@ package org.example;
 public record Order(
         String id,
         Product product,
-        int amount
+        int amount,
+        double total
         ) {
 }

@@ -19,7 +19,8 @@ public class ShopService {
             Optional<Product> product = checkProduct(productRepo.getProducts(), request.get("id"));
             if (!product.equals(Optional.empty())) {
                 // Sets order.
-                orderList.addOrder(new Order(UUID.randomUUID().toString(), product.orElseThrow(), Integer.parseInt(request.get("amount"))));
+                int amount = Integer.parseInt(request.get("amount"));
+                orderList.addOrder(new Order(UUID.randomUUID().toString(), product.orElseThrow(), amount, amount * product.get().price()));
             }
         }
     }
@@ -46,7 +47,9 @@ public class ShopService {
         for (Order order: orderList.getOrders()) {
             System.out.println("Order-ID: " + order.id());
             System.out.println("Product: " + order.product().name());
-            System.out.println("Amount: " + order.amount() + "\n");
+            System.out.println("Price: " + order.product().price());
+            System.out.println("Amount: " + order.amount());
+            System.out.println("Total: " + order.total() + "\n");
         }
     }
 }
