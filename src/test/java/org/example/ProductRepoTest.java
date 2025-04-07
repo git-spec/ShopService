@@ -36,4 +36,35 @@ class ProductRepoTest {
         // THEN
         assertEquals(expected, actual);
     }
+
+    @Test
+    void getProducts_shouldHaveNotProduct_whenProductIsRemoved() {
+        // GIVEN
+        String id = "123457";
+        Product product = new Product("123456", "Apfel", 0.69, 20);
+        Optional<Product> expected = Optional.empty();
+        //wHEN
+        ProductRepo repo = new ProductRepo();
+        repo.addProduct(product);
+        repo.removeProduct(id);
+        Optional<Product> actual = repo.getProduct(id);
+        // THEN
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getProducts_shouldBeEmpty_whenAllProductsAreCleared() {
+        // GIVEN
+        String id = "123457";
+        Product product_1 = new Product("123456", "Apfel", 0.69, 20);
+        Product product_2 = new Product("567890", "Birne", 0.79, 30);
+        Optional<Product> expected = Optional.empty();
+        //wHEN
+        ProductRepo repo = new ProductRepo();
+        repo.addProduct(product_1);
+        repo.addProduct(product_2);
+        repo.removeAll();
+        // THEN
+        assertTrue(repo.getProducts().isEmpty());
+    }
 }
