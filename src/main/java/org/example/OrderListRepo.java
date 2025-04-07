@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class OrderListRepo {
+    public static String orderID = "000000";
     private final List<Order> orders;
 
     public OrderListRepo() {
