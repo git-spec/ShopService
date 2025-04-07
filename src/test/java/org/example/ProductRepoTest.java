@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductRepoTest {
 
     @Test
-    void getProducts_shouldReturnProduct_whenProductExists() {
+    void getProduct_shouldReturnProduct_whenProductExists() {
         //GIVEN
         String id = "123456";
         Product expected = new Product("123456", "Apfel", 0.69, 20);
@@ -24,7 +24,7 @@ class ProductRepoTest {
     }
 
     @Test
-    void getProducts_shouldReturnEmpty_whenProductDoNotExists() {
+    void getProduct_shouldReturnEmpty_whenProductDoNotExists() {
         //GIVEN
         String id = "123457";
         Product product = new Product("123456", "Apfel", 0.69, 20);
