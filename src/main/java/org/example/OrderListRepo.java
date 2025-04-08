@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class OrderListRepo {
+public class OrderListRepo implements OrderRepo {
     private final List<Order> orders;
 
     public OrderListRepo() {

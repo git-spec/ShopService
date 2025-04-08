@@ -6,7 +6,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class ShopService {
-    public final OrderListRepo orderList = new OrderListRepo();
+    public final OrderRepo orderList = new OrderListRepo();
     public final ProductRepo productRepo = new ProductRepo();
 
     /**
