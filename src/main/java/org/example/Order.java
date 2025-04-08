@@ -5,5 +5,4 @@ public record Order(
         Product product,
         int amount,
         double total
-        ) {
-}
+        ) {}
